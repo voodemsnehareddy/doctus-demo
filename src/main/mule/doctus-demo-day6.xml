@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="00f57f34-f355-466b-a8dd-484aabd78778" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="doctus-demo-day6Flow" doc:id="39009a4f-e40f-41ba-917e-6cc12b9de828" >
+		<http:listener doc:name="Listener" doc:id="552933aa-99f3-494b-a991-0ec3633bac74" config-ref="HTTP_Listener_config" path="/doctus"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c4061e87-2508-4aef-98d2-2a2b964aeee2" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="fbb670c0-7712-4c82-b0cd-8db76ef2ee30" />
+	</flow>
+</mule>
